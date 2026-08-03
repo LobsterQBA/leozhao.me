@@ -9,6 +9,14 @@
     {
       "source": "/projects/trackpad-canvas/:path*",
       "destination": "https://trackpad-canvas.vercel.app/projects/trackpad-canvas/:path*"
+    },
+    {
+      "source": "/projects/splittaste",
+      "destination": "https://splittaste.vercel.app/projects/splittaste"
+    },
+    {
+      "source": "/projects/splittaste/:path*",
+      "destination": "https://splittaste.vercel.app/projects/splittaste/:path*"
     }
   ]
 }
