@@ -3,87 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Leo Zhao — product thinking, systems and small useful tools." />
-    <title>Leo Zhao — Work in progress</title>
+    <meta name="description" content="Leo Zhao makes small, useful products out of messy human problems." />
+    <title>Leo Zhao — Makes things</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="grain" aria-hidden="true"></div>
     <main>
-      <nav>
-        <a class="wordmark" href="/">LZ<span>·</span>ME</a>
+      <nav aria-label="Main navigation">
+        <a class="wordmark" href="/" aria-label="Leo Zhao home">LEO<span>★</span>ZHAO</a>
         <div class="nav-links">
-          <a href="#work">Selected work</a>
-          <a href="https://github.com/LobsterQBA">GitHub ↗</a>
+          <a href="#projects">Projects</a>
+          <a href="https://github.com/LobsterQBA" rel="noreferrer">GitHub ↗</a>
         </div>
       </nav>
 
       <header class="hero">
-        <p class="kicker">Personal workbench · 2026</p>
-        <h1>Making fuzzy<br /><em>things legible.</em></h1>
-        <div class="hero-foot">
+        <p class="eyebrow"><span></span> Student · building in public</p>
+        <div class="hero-title-wrap">
+          <div class="doodle doodle-sun" aria-hidden="true"></div>
+          <div class="doodle doodle-squiggle" aria-hidden="true">↝</div>
+          <h1>I make <em>small things</em><br />for big, messy ideas.</h1>
+          <div class="doodle doodle-dot" aria-hidden="true"></div>
+        </div>
+        <div class="intro-row">
           <p>
-            I’m Leo Zhao. I turn questions, systems and rough ideas into
-            tools people can actually use.
+            Hi, I’m Leo — a student and curious builder turning questions,
+            systems and little observations into useful things.
           </p>
-          <span class="status"><i></i> building in public</span>
+          <a class="scroll-note" href="#projects">See what I’m making <b>↓</b></a>
         </div>
       </header>
 
-      <section class="principles" aria-label="What Leo works on">
-        <p>Product thinking</p><p>System clarity</p><p>Useful prototypes</p>
+      <section class="marquee" aria-label="What Leo works on">
+        <div>
+          <span>Product thinking</span><i>✦</i><span>Clear systems</span><i>✦</i><span>Useful experiments</span><i>✦</i>
+          <span>Product thinking</span><i>✦</i><span>Clear systems</span><i>✦</i><span>Useful experiments</span><i>✦</i>
+        </div>
       </section>
 
-      <section id="work" class="work">
-        <div class="section-head">
-          <p class="kicker">01 / Selected work</p>
-          <p>One project so far. More room than noise.</p>
+      <section id="projects" class="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="eyebrow">01 / Projects</p>
+          <h2 id="projects-title">Things I’ve put<br /><em>into the world.</em></h2>
+          <p class="aside">No giant portfolio archive. Just a growing collection of things worth opening.</p>
         </div>
 
-        <a class="project feature" href="/projects/trackpad-canvas" aria-label="Open the Trackpad Canvas project">
-          <div class="project-visual canvas-visual" aria-hidden="true">
-            <span class="canvas-trackpad"><i></i><i></i><i></i></span>
-            <span class="canvas-line line-a"></span>
-            <span class="canvas-line line-b"></span>
-            <span class="canvas-box box-a">SOURCE</span>
-            <span class="canvas-box box-b">MODEL</span>
-            <span class="canvas-box box-c">DECK</span>
+        <a class="project-card" href="/projects/trackpad-canvas" aria-label="Open Trackpad Canvas">
+          <div class="project-art" aria-hidden="true">
+            <p class="art-label">Trackpad<br />Canvas</p>
+            <div class="pad"><span class="finger one"></span><span class="finger two"></span><span class="finger three"></span></div>
+            <div class="diagram">
+              <span class="node n-one">IDEA</span><span class="node n-two">FLOW</span><span class="node n-three">DECK</span>
+              <i class="wire w-one"></i><i class="wire w-two"></i>
+            </div>
+            <b class="spark s-one">✦</b><b class="spark s-two">✦</b>
           </div>
-          <div class="project-copy">
-            <span class="index">01</span>
-            <h2>Trackpad<br />Canvas <b>↗</b></h2>
-            <p>Turn a Mac trackpad into a direct, fluid canvas for breakdowns and system diagrams.</p>
-            <span class="tag">Native macOS · Open source</span>
+          <div class="project-info">
+            <div><span class="project-number">01</span><span class="project-year">2026</span></div>
+            <h3>Your trackpad is the canvas <b>↗</b></h3>
+            <p>Draw a rough thought with your fingers, then shape it into a cleaner diagram.</p>
+            <div class="pills"><span>Native macOS</span><span>Open source</span></div>
           </div>
         </a>
 
-        <div class="project-grid">
-          <article class="placeholder">
-            <span class="index">02</span>
-            <p class="placeholder-title">Next field note</p>
-            <p>Giving the next useful question some room to become a project.</p>
-            <span>In progress</span>
+        <div class="next-row">
+          <p>More experiments are quietly taking shape.</p>
+          <span class="little-star">✦</span>
+          <p>Come back soon.</p>
+        </div>
+
+        <div class="placeholder-grid" aria-label="Upcoming projects">
+          <article class="placeholder-card peach">
+            <span>02 / In progress</span>
+            <p>Something about<br /><em>how we choose.</em></p>
+            <i>⌇</i>
           </article>
-          <article class="placeholder dark">
-            <span class="index">03</span>
-            <p class="placeholder-title">Something small,<br />then better.</p>
-            <p>Experiments, systems and the things between them.</p>
-            <span>Coming later</span>
+          <article class="placeholder-card mint">
+            <span>03 / In progress</span>
+            <p>Something that makes<br /><em>information kinder.</em></p>
+            <i>✦</i>
           </article>
         </div>
       </section>
 
       <section class="now">
-        <p class="kicker">Currently</p>
-        <p>Thinking about how the tools we already touch can make complex conversations feel more physical.</p>
+        <p class="eyebrow">Right now</p>
+        <p>Thinking about how the tools we already touch can make complicated conversations feel more <em>human.</em></p>
       </section>
 
       <footer>
-        <p>© Leo Zhao</p>
-        <a href="https://github.com/LobsterQBA">Find the work on GitHub ↗</a>
+        <a class="wordmark" href="/">LEO<span>★</span>ZHAO</a>
+        <p>Made with curiosity in 2026.</p>
+        <a href="https://github.com/LobsterQBA" rel="noreferrer">GitHub ↗</a>
       </footer>
     </main>
   </body>
