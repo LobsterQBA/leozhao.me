@@ -1,4 +1,14 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/projects/trackpad-canvas",
+      "destination": "https://trackpad-canvas.vercel.app"
+    },
+    {
+      "source": "/projects/trackpad-canvas/:path*",
+      "destination": "https://trackpad-canvas.vercel.app/:path*"
+    }
+  ]
 }
