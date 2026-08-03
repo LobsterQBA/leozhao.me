@@ -1,3 +1,3 @@
-:HL["/projects/where-to-sit/_next/static/chunks/11jjf42q0yyvf.css","style"]
+:HL["/projects/where-to-sit/_next/static/chunks/2eu5w9g_ksgje.css","style"]
 :HC["/",""]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cinema","param":null,"prefetchHints":0,"slots":{"children":{"name":"auditoriumId","param":{"type":"d","key":"regal-issaquah","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"9JlhjPY31ktlLW5EQ5Q5E"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"cinema","param":null,"prefetchHints":0,"slots":{"children":{"name":"auditoriumId","param":{"type":"d","key":"regal-issaquah","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"zQhM6h7dLCAlWyjW6Z85T"}
