@@ -4,11 +4,11 @@
   "rewrites": [
     {
       "source": "/projects/trackpad-canvas",
-      "destination": "https://trackpad-canvas.vercel.app"
+      "destination": "https://trackpad-canvas.vercel.app/projects/trackpad-canvas"
     },
     {
       "source": "/projects/trackpad-canvas/:path*",
-      "destination": "https://trackpad-canvas.vercel.app/:path*"
+      "destination": "https://trackpad-canvas.vercel.app/projects/trackpad-canvas/:path*"
     }
   ]
 }
