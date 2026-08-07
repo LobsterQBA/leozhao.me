@@ -3,6 +3,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/__analytics/splittaste/:path*",
+      "destination": "https://splittaste.vercel.app/:path*"
+    },
+    {
+      "source": "/__analytics/trackpad-canvas/:path*",
+      "destination": "https://trackpad-canvas.vercel.app/:path*"
+    },
+    {
       "source": "/projects/trackpad-canvas",
       "destination": "https://trackpad-canvas.vercel.app/projects/trackpad-canvas"
     },
