@@ -1,0 +1,8 @@
+{
+  "name": "leozhao-me",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/inject-analytics.mjs",
+    "check:analytics": "node scripts/inject-analytics.mjs --check"
+  }
+}
