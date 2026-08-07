@@ -1,19 +1,28 @@
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const analyticsPath = "/_vercel/insights/script.js";
 const analyticsTag = `<script defer src="${analyticsPath}"></script>`;
 const checkOnly = process.argv.includes("--check");
 const root = process.cwd();
-const ignoredDirectories = new Set([".git", ".gstack", ".vercel", "node_modules"]);
+const outputRoot = path.join(root, "public");
+
+if (!checkOnly) {
+  await mkdir(outputRoot, { recursive: true });
+  await Promise.all([
+    cp(path.join(root, "index.html"), path.join(outputRoot, "index.html")),
+    cp(path.join(root, "styles.css"), path.join(outputRoot, "styles.css")),
+    cp(path.join(root, "projects"), path.join(outputRoot, "projects"), {
+      recursive: true,
+    }),
+  ]);
+}
 
 async function findHtmlFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const files = [];
 
   for (const entry of entries) {
-    if (entry.isDirectory() && ignoredDirectories.has(entry.name)) continue;
-
     const entryPath = path.join(directory, entry.name);
     if (entry.isDirectory()) {
       files.push(...(await findHtmlFiles(entryPath)));
@@ -25,7 +34,7 @@ async function findHtmlFiles(directory) {
   return files;
 }
 
-const htmlFiles = await findHtmlFiles(root);
+const htmlFiles = await findHtmlFiles(outputRoot);
 const missing = [];
 
 for (const file of htmlFiles) {
@@ -33,7 +42,9 @@ for (const file of htmlFiles) {
   if (html.includes(analyticsPath)) continue;
 
   if (!html.includes("</body>")) {
-    throw new Error(`Cannot inject analytics because ${path.relative(root, file)} has no closing body tag.`);
+    throw new Error(
+      `Cannot inject analytics because ${path.relative(outputRoot, file)} has no closing body tag.`,
+    );
   }
 
   missing.push(file);
