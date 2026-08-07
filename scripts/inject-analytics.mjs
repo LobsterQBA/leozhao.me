@@ -22,8 +22,15 @@ function getAnalyticsConfig() {
   return config;
 }
 
+function absoluteSitePath(value) {
+  if (value.startsWith("/") || value.startsWith("http://") || value.startsWith("https://")) {
+    return value;
+  }
+  return `/${value}`;
+}
+
 const analyticsConfig = getAnalyticsConfig();
-const analyticsTag = `<script ${analyticsMarker}>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script ${analyticsMarker} defer src="${analyticsConfig.scriptSrc}"${analyticsConfig.viewEndpoint ? ` data-view-endpoint="${analyticsConfig.viewEndpoint}"` : ""}${analyticsConfig.eventEndpoint ? ` data-event-endpoint="${analyticsConfig.eventEndpoint}"` : ""}${analyticsConfig.sessionEndpoint ? ` data-session-endpoint="${analyticsConfig.sessionEndpoint}"` : ""}></script>`;
+const analyticsTag = `<script ${analyticsMarker}>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script ${analyticsMarker} defer src="${absoluteSitePath(analyticsConfig.scriptSrc)}"${analyticsConfig.viewEndpoint ? ` data-view-endpoint="${absoluteSitePath(analyticsConfig.viewEndpoint)}"` : ""}${analyticsConfig.eventEndpoint ? ` data-event-endpoint="${absoluteSitePath(analyticsConfig.eventEndpoint)}"` : ""}${analyticsConfig.sessionEndpoint ? ` data-session-endpoint="${absoluteSitePath(analyticsConfig.sessionEndpoint)}"` : ""}></script>`;
 
 if (!checkOnly) {
   await mkdir(outputRoot, { recursive: true });
