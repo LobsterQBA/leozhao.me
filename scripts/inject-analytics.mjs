@@ -1,11 +1,29 @@
 import { cp, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const analyticsPath = "/_vercel/insights/script.js";
-const analyticsTag = `<script defer src="${analyticsPath}"></script>`;
+const fallbackAnalyticsPath = "/_vercel/insights/script.js";
+const analyticsMarker = "data-vercel-analytics";
 const checkOnly = process.argv.includes("--check");
 const root = process.cwd();
 const outputRoot = path.join(root, "public");
+
+function getAnalyticsConfig() {
+  const configString =
+    process.env.VERCEL_OBSERVABILITY_CLIENT_CONFIG ??
+    process.env.NEXT_PUBLIC_VERCEL_OBSERVABILITY_CLIENT_CONFIG;
+
+  if (!configString) return { scriptSrc: fallbackAnalyticsPath };
+
+  const config = JSON.parse(configString).analytics;
+  if (!config?.scriptSrc) {
+    throw new Error("Vercel did not provide an Analytics script path.");
+  }
+
+  return config;
+}
+
+const analyticsConfig = getAnalyticsConfig();
+const analyticsTag = `<script ${analyticsMarker}>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script ${analyticsMarker} defer src="${analyticsConfig.scriptSrc}"${analyticsConfig.viewEndpoint ? ` data-view-endpoint="${analyticsConfig.viewEndpoint}"` : ""}${analyticsConfig.eventEndpoint ? ` data-event-endpoint="${analyticsConfig.eventEndpoint}"` : ""}${analyticsConfig.sessionEndpoint ? ` data-session-endpoint="${analyticsConfig.sessionEndpoint}"` : ""}></script>`;
 
 if (!checkOnly) {
   await mkdir(outputRoot, { recursive: true });
@@ -39,7 +57,7 @@ const missing = [];
 
 for (const file of htmlFiles) {
   const html = await readFile(file, "utf8");
-  if (html.includes(analyticsPath)) continue;
+  if (html.includes(analyticsMarker)) continue;
 
   if (!html.includes("</body>")) {
     throw new Error(
